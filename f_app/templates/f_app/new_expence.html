@@ -1,0 +1,31 @@
+{% extends 'f_app/base.html' %}
+
+{% block title %}
+Add expence
+{% endblock %}
+
+{% block content %}
+<h4>Add expence</h4>
+<form method = "post">
+    {% csrf_token %}
+    <h5>Expence category:</h5>
+    {{form.category}}
+    <h5>Expence amount:</h5>
+    {{form.amount}}
+    <h5>Date of expence:</h5>
+    {{form.date}}
+    <!-- <input type = "text" placeholder="Choose category" class="form-control"> -->
+    <!-- Expence category:
+    <select name="select" placeholder="Choose category" class="form-control">
+        <option value="Main work">Main work</option>
+        <option value="Odd work">Odd work</option>
+        <option value="Business">Business</option>
+    </select>
+    Expence amount:
+    <input type = "number" placeholder="Choose amount" class="form-control">
+    Date of expence:
+    <input type="date" lang="" placeholder="Choose date"class = "form-control"> -->
+    <button type="submit" class="btn btn-success"> Add </button>
+    
+</form>
+{% endblock %}

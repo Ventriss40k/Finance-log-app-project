@@ -1,0 +1,28 @@
+{% extends 'f_app/base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+
+{% block content %}
+<h2>Welcome to finance app</h2>
+<!-- <h3>Incomes: </h3>
+{% for el in incomes %}
+  <div class="alert alert-warning mt-2">
+    <h3>{{el.category}} {{el.amount}} {{el.date}}</h3>
+    <p>{{el.title}}</p>
+  </div>
+{% endfor %} -->
+<h3>Total balance: {{total_balance}} UAH</h3>
+<h3>Mounth incomes: {{current_months_sum_incomes}} UAH</h3>
+<h3>Mounth expences: {{current_months_sum_expenses}} UAH</h3>
+
+<!-- {% for el in expences %}
+  <div class="alert alert-warning mt-2">
+    <h3>{{el.category}} {{el.amount}} {{el.date}}</h3>
+    <p>{{el.title}}</p>
+  </div>
+{% endfor %} -->
+{% endblock %}
