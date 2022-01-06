@@ -1,6 +1,10 @@
+from django import forms
 from .models import Income,Expense
 from django.forms import ModelForm,NumberInput,Select,DateInput
-from .models import CATEGORY_EXPENCE,CATEGORY_INCOME
+# import django.forms
+from .models import *
+import datetime
+
 
 class IncomeForm(ModelForm):
     class Meta:
@@ -12,10 +16,6 @@ class IncomeForm(ModelForm):
         "choices":Select(choices= choices, attrs={"class":"form-control",'placeholder':'Select category'})}
 
 
-
-
-
-
 class ExpenceForm(ModelForm):
     class Meta:
         model = Expense
@@ -24,3 +24,8 @@ class ExpenceForm(ModelForm):
         widgets = {"amount":NumberInput(attrs={'class':"form-control",'placeholder':'Input amount'}),
         "date":DateInput(attrs={"class":"form-control",'placeholder':'Input date'}),
         "choices":Select(choices= choices, attrs={"class":"form-control",'placeholder':'Select category'})}
+
+# ---------------------
+class GetStatsForPeriod(forms.Form):
+    start_date = forms.DateField(widget = forms.SelectDateWidget(years=range(1980,2100)))
+    end_date = forms.DateField(widget = forms.SelectDateWidget(years=range(1980,2100)))
